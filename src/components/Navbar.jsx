@@ -1,15 +1,14 @@
-
-
+import s from './Navbar.module.css';
 
 const Navbar = () => {
     return (
 
-        <nav className='nav'>
-            <div>Профиль</div>
-            <div>Друзья</div>
-            <div>Собщения</div>
-            <div>Новости</div>
-            <div>Музыка</div>
+        <nav className={s.nav}>
+            <div className={s.item}>Профиль</div>
+            <div className={s.item}>Друзья</div>
+            <div className={s.item}>Сообщения</div>
+            <div className={s.item}>Новости</div>
+            <div className={s.item}>Музыка</div>
         </nav>
     )
 }

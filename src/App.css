@@ -11,26 +11,6 @@
   /* grid-gap: 10px; */
 }
 
-.nav {
-  grid-area: n;
-  background-color: cornflowerblue;
-  padding: 5px;
-  
-  
-}
-
-
-.header {
-  grid-area: h;
-  background-color: blue;
-}
-
-.conent {
-  grid-area: c;
-  background-color: darkgray;
-}
-
-
 div {
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -38,10 +18,3 @@ div {
   color: black;
 }
 
-
-.header img {
-  width: 70px;
-  margin: 0;
-  padding: 0;
-  float: left; 
-}
