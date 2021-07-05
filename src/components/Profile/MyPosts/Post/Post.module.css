@@ -10,3 +10,12 @@
   border-radius: 20px;
   
 }
+
+span {
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  background-color: rgb(191, 212, 253);
+  
+}
+

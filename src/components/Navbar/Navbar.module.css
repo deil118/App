@@ -1,6 +1,6 @@
 .nav {
   grid-area: n;
-  background-color: #383a45;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   padding: 5px;
 
 
@@ -13,5 +13,5 @@
 }
 
 .item a.active {
-  color: rgb(184, 184, 184);
+  color: rgb(143, 141, 141);
 }
