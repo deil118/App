@@ -9,6 +9,7 @@ import Profile from './components/Profile/Profile';
 
 
 
+
 const App = (props) => {
 
 
@@ -21,12 +22,19 @@ const App = (props) => {
         <Navbar />
         <div className='app-wraper-content'>
   
+   
+        <Route path='/dialogs' render={ () =>  <Dialogs
+           state={props.state.dialogsPage}
+            messages={props.state.dialogsPage}
+            dispatch={props.dispatch}/> } 
+            />
 
           <Route path='/profile' render={ () =>  <Profile 
-          state={props.state.profilePage} 
-          addPost={props.addPost} /> } />
-         
-          <Route path='/dialogs' render={ () =>  <Dialogs state={props.state.dialogsPage} messages={props.state.dialogsPage}/> } />
+          profilePage={props.state.profilePage} 
+          dispatch={props.dispatch} 
+      
+          /> } />
+        
 
         </div>
         </div>
