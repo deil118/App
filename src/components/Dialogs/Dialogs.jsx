@@ -2,42 +2,42 @@ import s from './Dialogs.module.css'
 import DialogItem from './dialogItem/DialogItem';
 import Message from './Message/Message';
 import React from 'react';
-
-
+import { sandMessgaeCreator, updateNewMessageBodyCreator } from '../../redux/dialogs-reducer';
 
 
 const Dialogs = (props) => {
 
-    let dialogElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
-    let messagesElements = props.state.messages.map(m => <Message message={m.message} id={m.id} />)
+    let state = props.store.getState().dialogsPage;
 
-    let newMessagEelement = React.createRef();
+    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
+    let messagesElements = state.messages.map(m => <Message message={m.message} />)
+    let newMessageBody = state.newMessageBody;
 
-    let addMessage = () => {
-        let message = newMessagEelement.current.value;
-        {
-            props.addMessage(message);
-            newMessagEelement.current.value = "";
-        }
+
+    let onSendMessageClick = () => {
+        props.store.dispatch(sandMessgaeCreator());
+    }
+    let onNewMessageChange = (e) => {
+        let body = e.target.value;
+        props.store.dispatch(updateNewMessageBodyCreator(body))
     }
 
 
     return (
         <div className={s.dialogs}>
             < div className={s.dialogsItem}>
-                <div>
-
-                </div>
-                {dialogElements
-                }
+                {dialogsElements}
             </div>
 
             <div className={s.messages}>
-                {messagesElements}
+                <div> {messagesElements} </div>
             </div>
             <div>
-                <textarea ref={newMessagEelement} />
-                <button onClick={addMessage}> Отправить</button>
+                <div> <textarea placeholder='Введите сообщение'
+
+                    value={props.newMessageBody}
+                    onChange={onNewMessageChange} /> </div>
+                <div>  <button onClick={onSendMessageClick} > Отправить</button> </div>
             </div>
 
         </div>
