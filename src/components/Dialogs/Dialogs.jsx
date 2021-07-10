@@ -2,7 +2,7 @@ import s from './Dialogs.module.css'
 import DialogItem from './dialogItem/DialogItem';
 import Message from './Message/Message';
 import React from 'react';
-import { sandMessgaeCreator, updateNewMessageBodyCreator } from '../../redux/dialogs-reducer';
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogs-reducer';
 
 
 const Dialogs = (props) => {
@@ -15,7 +15,7 @@ const Dialogs = (props) => {
 
 
     let onSendMessageClick = () => {
-        props.store.dispatch(sandMessgaeCreator());
+        props.store.dispatch(sendMessageCreator());
     }
     let onNewMessageChange = (e) => {
         let body = e.target.value;
@@ -35,7 +35,7 @@ const Dialogs = (props) => {
             <div>
                 <div> <textarea placeholder='Введите сообщение'
 
-                    value={props.newMessageBody}
+                    value={newMessageBody}
                     onChange={onNewMessageChange} /> </div>
                 <div>  <button onClick={onSendMessageClick} > Отправить</button> </div>
             </div>
